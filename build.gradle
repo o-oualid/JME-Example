@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
+    }
+}
+
+allprojects {
+    apply plugin: "idea"
+    version = '1.0'
+    ext {
+        appName = "game"
+        jmev = "3.1.0-stable"
+        junitPlatformVersion = "1.0.0"
+    }
+
+    repositories {
+
+        maven { url "http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine" }
+        mavenCentral()
+        google()
+    }
+}
+
+def JMonkey_version = "3.1.0-stable"
+def junitPlatform_version = "1.0.0"
+project(":desktop") {
+    apply plugin: "java"
+    apply plugin: "idea"
+    idea {
+        module {
+            scopes.PROVIDED.minus += [configurations.compile]
+            scopes.COMPILE.plus += [configurations.compile]
+        }
+    }
+    dependencies {
+        compile project(":core")
+        compile "org.junit.platform:junit-platform-launcher:$junitPlatform_version"
+        compile "org.jmonkeyengine:jme3-desktop:$JMonkey_version"
+        compile "org.jmonkeyengine:jme3-lwjgl3:$JMonkey_version"
+
+    }
+}
+
+project(":android") {
+    apply plugin: "android"
+
+    dependencies {
+        compile project(":core")
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        testCompile 'junit:junit:4.12'
+        compile 'com.android.support:appcompat-v7:27.0.2'
+        compile "org.jmonkeyengine:jme3-android:$JMonkey_version"
+        compile "org.jmonkeyengine:jme3-android-native:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-bullet-native-android:$jmeVersion"
+    }
+}
+
+project(":core") {
+    apply plugin: "java"
+    dependencies {
+        compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-effects:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-jogg:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-plugins:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-bullet:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-terrain:$jmeVersion"
+
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4'
+}
