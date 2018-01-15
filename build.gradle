@@ -15,8 +15,6 @@ allprojects {
     version = '1.0'
     ext {
         appName = "game"
-        jmev = "3.1.0-stable"
-        junitPlatformVersion = "1.0.0"
     }
 
     repositories {
@@ -27,7 +25,7 @@ allprojects {
     }
 }
 
-def JMonkey_version = "3.1.0-stable"
+def JMonkey_version = "3.2.0-stable"
 def junitPlatform_version = "1.0.0"
 project(":desktop") {
     apply plugin: "java"
@@ -60,7 +58,20 @@ project(":android") {
         //compile "org.jmonkeyengine:jme3-bullet-native-android:$jmeVersion"
     }
 }
-
+project(":ios") {
+    apply plugin: "java"
+    dependencies {
+        compile project(":core")
+        compile "org.jmonkeyengine:jme3-ios:$JMonkey_version"
+    }
+}
+project(":vr") {
+    apply plugin: "java"
+    dependencies {
+        compile project(":core")
+        compile "org.jmonkeyengine:jme3-vr:$JMonkey_version"
+    }
+}
 project(":core") {
     apply plugin: "java"
     dependencies {
