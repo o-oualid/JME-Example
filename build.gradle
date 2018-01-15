@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
+        //if you you will use Intellij IDEA instead of Android Studio do not update android gradle plugin to 3.0.0 or more this will cause an issue, at least until an update Intellij IDEA update the android plugin.
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
     }
 }
@@ -55,7 +56,7 @@ project(":android") {
         compile 'com.android.support:appcompat-v7:27.0.2'
         compile "org.jmonkeyengine:jme3-android:$JMonkey_version"
         compile "org.jmonkeyengine:jme3-android-native:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-bullet-native-android:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-bullet-native-android:$JMonkey_version"
     }
 }
 project(":ios") {
@@ -76,11 +77,12 @@ project(":core") {
     apply plugin: "java"
     dependencies {
         compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-effects:$jmeVersion"
-        //compile "org.jmonkeyengine:jme3-jogg:$jmeVersion"
-        //compile "org.jmonkeyengine:jme3-plugins:$jmeVersion"
-        //compile "org.jmonkeyengine:jme3-bullet:$jmeVersion"
-        //compile "org.jmonkeyengine:jme3-terrain:$jmeVersion"
+        //compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-bullet:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-terrain:$JMonkey_version"
+        //uncomment the dependencies that you want to use don't forget to uncomment Bullet dependency for android if you want to use Bullet.
 
     }
 }
