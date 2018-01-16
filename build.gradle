@@ -14,12 +14,7 @@ buildscript {
 allprojects {
     apply plugin: "idea"
     version = '1.0'
-    ext {
-        appName = "game"
-    }
-
     repositories {
-
         maven { url "http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine" }
         mavenCentral()
         google()
@@ -42,7 +37,6 @@ project(":desktop") {
         compile "org.junit.platform:junit-platform-launcher:$junitPlatform_version"
         compile "org.jmonkeyengine:jme3-desktop:$JMonkey_version"
         compile "org.jmonkeyengine:jme3-lwjgl3:$JMonkey_version"
-
     }
 }
 
@@ -77,16 +71,12 @@ project(":core") {
     apply plugin: "java"
     dependencies {
         compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
+        compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
+        compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-bullet:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-terrain:$JMonkey_version"
         //uncomment the dependencies that you want to use don't forget to uncomment Bullet dependency for android if you want to use Bullet.
 
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.4'
 }

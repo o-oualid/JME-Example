@@ -10,16 +10,10 @@ import com.jme3.system.AppSettings;
 
 class VrLauncher extends VRAppState  {
 
-    /**
-     * Create a new VR app state with given settings. The app state relies on the the given {@link VREnvironment VR environment}.
-     *
-     * @param settings    the settings to use.
-     * @param environment the {@link VREnvironment VR environment} that this app state is using.
-     */
     public VrLauncher(AppSettings settings, VREnvironment environment) {
         super(settings, environment);
+        Main app=new Main();
+        initialize(app.getStateManager(),app);
+        getApplication().start();
     }
-
-
-
 }

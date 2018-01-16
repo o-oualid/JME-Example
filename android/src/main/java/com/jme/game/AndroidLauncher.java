@@ -1,20 +1,20 @@
 package com.jme.game;
 
 import android.os.Bundle;
-
 import com.jme3.app.AndroidHarness;
 
-public class MainActivity extends AndroidHarness {
+public class AndroidLauncher extends AndroidHarness {
+    public AndroidLauncher(){
+        appClass="com.jme.game";
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         app=new Main();
-        app.start();
+        super.onCreate(savedInstanceState);
+
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        app.stop();
     }
 }
