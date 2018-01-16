@@ -37,6 +37,8 @@ project(":desktop") {
         compile "org.junit.platform:junit-platform-launcher:$junitPlatform_version"
         compile "org.jmonkeyengine:jme3-desktop:$JMonkey_version"
         compile "org.jmonkeyengine:jme3-lwjgl3:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-bullet-native:$JMonkey_version"
+
     }
 }
 
@@ -50,7 +52,8 @@ project(":android") {
         compile 'com.android.support:appcompat-v7:27.0.2'
         compile "org.jmonkeyengine:jme3-android:$JMonkey_version"
         compile "org.jmonkeyengine:jme3-android-native:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-bullet-native-android:$JMonkey_version"
+       // compile "org.jmonkeyengine:jme3-bullet-native-android:$JMonkey_version"
+
     }
 }
 project(":ios") {
@@ -71,11 +74,16 @@ project(":core") {
     apply plugin: "java"
     dependencies {
         compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
-        compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
-        compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"
+        runtime files('../core/src/main/assets')
+        //compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
+       // compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-bullet:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-terrain:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-jogl:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-niftygui:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-jogl:$JMonkey_version"
+        //compile "org.jmonkeyengine:jme3-examples:$JMonkey_version"
         //uncomment the dependencies that you want to use don't forget to uncomment Bullet dependency for android if you want to use Bullet.
 
     }
