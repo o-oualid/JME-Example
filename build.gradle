@@ -74,7 +74,6 @@ project(":core") {
     apply plugin: "java"
     dependencies {
         compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
-        runtime files('../assets')
         //compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
         //compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
        // compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"

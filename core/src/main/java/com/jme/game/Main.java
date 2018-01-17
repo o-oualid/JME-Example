@@ -2,13 +2,10 @@ package com.jme.game;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.light.DirectionalLight;
-import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
 
 // your game need to be on this package
 // you can launch your game from other modules. for example if you want to launch game app on desktop go to DesktopLauncher class on desktop module.
@@ -35,7 +32,7 @@ public class Main extends SimpleApplication {
     }
 
     @Override
-    public void simpleRender(RenderManager rm){
+    public void simpleRender(RenderManager rm) {
 
     }
 }
