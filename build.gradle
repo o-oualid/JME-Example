@@ -1,11 +1,13 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
         jcenter()
         google()
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.1.0'
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
     }
 }
@@ -16,73 +18,69 @@ allprojects {
     repositories {
         maven { url "http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine" }
         mavenCentral()
+        mavenLocal()
         google()
     }
 }
 
-def JMonkey_version = "3.2.0-stable"
+def JMonkey_version = "3.2.1-stable"
 def junitPlatform_version = "1.0.0"
+
+
+
 project(":desktop") {
     apply plugin: "java"
     apply plugin: "idea"
-    idea {
-        module {
-            scopes.PROVIDED.minus += [configurations.compile]
-            scopes.COMPILE.plus += [configurations.compile]
-        }
-    }
     dependencies {
-        compile project(":core")
-        compile "org.junit.platform:junit-platform-launcher:$junitPlatform_version"
-        compile "org.jmonkeyengine:jme3-desktop:$JMonkey_version"
-        compile "org.jmonkeyengine:jme3-lwjgl3:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-bullet-native:$JMonkey_version"
+        implementation project(":core")
+        implementation "org.junit.platform:junit-platform-launcher:$junitPlatform_version"
+        implementation "org.jmonkeyengine:jme3-desktop:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-lwjgl3:$JMonkey_version"
 
     }
 }
 
 project(":android") {
     apply plugin: "android"
-
     dependencies {
-        compile project(":core")
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        testCompile 'junit:junit:4.12'
-        compile 'com.android.support:appcompat-v7:27.0.2'
-        compile "org.jmonkeyengine:jme3-android:$JMonkey_version"
-        compile "org.jmonkeyengine:jme3-android-native:$JMonkey_version"
-       // compile "org.jmonkeyengine:jme3-bullet-native-android:$JMonkey_version"
+        implementation project(":core")
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        testImplementation 'junit:junit:4.12'
+        implementation 'com.android.support:appcompat-v7:27.1.0'
+        implementation "org.jmonkeyengine:jme3-android:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-android-native:$JMonkey_version"
 
     }
 }
+
 project(":ios") {
     apply plugin: "java"
     dependencies {
-        compile project(":core")
-        compile "org.jmonkeyengine:jme3-ios:$JMonkey_version"
+        implementation project(":core")
+        implementation "org.jmonkeyengine:jme3-ios:$JMonkey_version"
+
     }
 }
+
 project(":vr") {
     apply plugin: "java"
     dependencies {
-        compile project(":core")
-        compile "org.jmonkeyengine:jme3-vr:$JMonkey_version"
+        implementation project(":core")
+        implementation "org.jmonkeyengine:jme3-vr:$JMonkey_version"
+
     }
 }
 project(":core") {
     apply plugin: "java"
     dependencies {
-        compile "org.jmonkeyengine:jme3-core:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
-       // compile "org.jmonkeyengine:jme3-effects:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-bullet:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-terrain:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-jogl:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-niftygui:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-jogl:$JMonkey_version"
-        //compile "org.jmonkeyengine:jme3-examples:$JMonkey_version"
-        //uncomment the dependencies that you want to use don't forget to uncomment Bullet dependency for android if you want to use Bullet.
+        implementation "org.jmonkeyengine:jme3-core:$JMonkey_version"
+       /* implementation "org.jmonkeyengine:jme3-jbullet:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-terrain:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-niftygui:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-effects:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-plugins:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-jogg:$JMonkey_version"
+        implementation "org.jmonkeyengine:jme3-networking:$JMonkey_version"*/
 
     }
 }

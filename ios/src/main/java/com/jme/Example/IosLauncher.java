@@ -1,10 +1,6 @@
-package com.jme.game;
+package com.jme.Example;
 
 import com.jme3.system.ios.IosHarness;
-
-/**
- * Created by: ouazrou-oualid on: 15/01/2018 package: com.jme.game project: jme.
- */
 
 class IosLauncher extends IosHarness{
     public IosLauncher(long appDelegate) {
